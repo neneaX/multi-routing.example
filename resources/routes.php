@@ -19,3 +19,12 @@ $this->router->get('/', 'Example\Foo\Application\Controllers\TestController@getH
 $this->router->post('/sandwich', 'Example\Foo\Application\Controllers\TestController@getSomeFooBarWithSandwich');
 $this->router->get('/foobar/{foo?}/{bar?}', 'Example\Foo\Application\Controllers\TestController@getSomeFooBar');
 
+
+$this->container->bind(
+    'multirouting.adapters.jsonrpc.request.proxy',
+    \Example\Foo\Application\Proxy\JsonRpc::class
+);
+$this->container->bind(
+    'multirouting.adapters.soap.request.proxy',
+    \Example\Foo\Application\Proxy\Soap::class
+);

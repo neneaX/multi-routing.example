@@ -1,2 +1,3 @@
 /vendor
 docker/Dockerfile.local
+/tests/phpunit.xml
