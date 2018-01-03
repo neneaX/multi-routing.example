@@ -2,6 +2,7 @@
 namespace tests\Base;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\ClientException;
 
 class RoutesTest extends \PHPUnit_Framework_TestCase
@@ -12,7 +13,13 @@ class RoutesTest extends \PHPUnit_Framework_TestCase
     public function testWhenAccessingTheGETPathThenReturnExpectedStringResponse()
     {
         $client = new Client();
-        $options = ['proxy' => ''];
+        $options = [
+            'proxy' => '',
+            'cookies' => CookieJar::fromArray(
+                ['XDEBUG_SESSION' => 'PHPSTORM'],
+                'multi-routing.dev'
+            )
+        ];
         $contents = null;
 
         try {

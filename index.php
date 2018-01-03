@@ -10,7 +10,8 @@ require __DIR__ . '/bootstrap.php';
  *
  * @var \Example\App
  */
-$app = new \Example\App();
+
+$app = \Example\App::build();
 
 /**
  * Run the application and return the response
